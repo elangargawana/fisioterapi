@@ -14,4 +14,14 @@ class TrxFormulirLayanan extends Model
         'formulir_id',
         'layanan_id'
     ];
+
+    public function formulir()
+    {
+        return $this->belongsTo(TrxPelangganFormulir::class, 'formulir_id');
+    }
+
+    public function layanan()
+    {
+        return $this->belongsTo(MLayanan::class, 'layanan_id');
+    }
 }

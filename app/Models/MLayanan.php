@@ -13,6 +13,12 @@ class MLayanan extends Model
     protected $fillable = [
         'nama',
         'deskripsi',
-        'biaya'
+        'biaya',
+        'status'
     ];
+
+    public function formulir()
+    {
+        return $this->belongsToMany(TrxPelangganFormulir::class);
+    }
 }

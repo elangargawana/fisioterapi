@@ -11,10 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('post_category', function (Blueprint $table) {
+        Schema::create('trx_rating', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
+            $table->unsignedBigInteger('transaksi_id');
+            $table->string('feedback');
             $table->timestamps();
+
+            $table->foreign('transaksi_id')->references('id')->on('trx_pelanggan_formulir')->cascadeOnDelete();
         });
     }
 

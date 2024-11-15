@@ -17,6 +17,9 @@ return new class extends Migration
             $table->string('keluhan');
             $table->timestamp('waktu_terapi');
             $table->string('tempat_terapi')->nullable();
+            $table->integer('nomor_antrian');
+            $table->integer('is_done_terapist')->default(0);
+            $table->integer('is_done_user')->default(0);
             $table->timestamps();
 
             $table->foreign('pelanggan_id')->references('id')->on('user_pelanggan')->cascadeOnDelete();

@@ -2,23 +2,20 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class RiwayatTransaksi extends Model
+class TrxRating extends Model
 {
     use HasFactory;
-    protected $table = 'riwayat_transaksi';
+    protected $table = 'trx_rating';
     protected $primaryKey = 'id';
     protected $fillable = [
         'transaksi_id',
-        'order_id',
-        'total_bayar',
-        'snap_token',
-        'status'
+        'rating',
+        'feedback'
     ];
 
-    public function formulir()
+    public function transaksi()
     {
         return $this->belongsTo(TrxPelangganFormulir::class, 'transaksi_id');
     }

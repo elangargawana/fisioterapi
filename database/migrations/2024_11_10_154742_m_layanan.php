@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('deskripsi');
-            $table->string('biaya');
+            $table->integer('biaya');
+            $table->enum('status', ['active', 'inactive']);
             $table->timestamps();
         });
     }

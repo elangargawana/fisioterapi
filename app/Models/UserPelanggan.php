@@ -16,4 +16,13 @@ class UserPelanggan extends Model
         'alamat',
         'no_hp'
     ];
+
+    public function formulirs()
+    {
+        return $this->hasMany(TrxPelangganFormulir::class, 'pelanggan_id');
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

@@ -11,16 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('post', function (Blueprint $table) {
+        Schema::create('m_category', function (Blueprint $table) {
             $table->id();
-            $table->string('judul');
-            $table->unsignedBigInteger('category_id');
-            $table->string('thumbnail');
-            $table->longText('content');
-            $table->integer('is_active')->default(1);
+            $table->string('nama');
             $table->timestamps();
-
-            $table->foreign('category_id')->references('id')->on('m_category')->cascadeOnDelete();
         });
     }
 

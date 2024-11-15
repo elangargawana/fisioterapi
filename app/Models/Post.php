@@ -14,6 +14,12 @@ class Post extends Model
         'judul',
         'category_id',
         'thumbnail',
-        'content'
+        'content',
+        'is_active'
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(MCategory::class, 'category_id');
+    }
 }

@@ -18,7 +18,8 @@ class TrxFormulir extends Model
         'nomor_hp',
         'alamat',
         'keluhan',
-        'datetime',
+        'start_time',
+        'end_time',
         'lokasi',
         'is_done'
     ];
@@ -26,5 +27,10 @@ class TrxFormulir extends Model
     public function ref_layanan()
     {
         return $this->belongsToMany(RefLayanan::class, 'trx_formulir_layanan', 'layanan_id', 'formulir_id');
+    }
+
+    public function not_available()
+    {
+        return $this->hasOne(NotAvailable::class, 'formulir_id');
     }
 }

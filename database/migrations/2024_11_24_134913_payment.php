@@ -13,11 +13,15 @@ return new class extends Migration
     {
         Schema::create('payment', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('formulir_id');
             $table->string('external_id');
             $table->decimal('amount');
             $table->string('checkout_link');
-            $table->enum('status', ['success', 'pending', 'failed'])->default('success');
+            $table->string('status')->nullable();
+            $table->string('payment_method')->nullable();
             $table->timestamps();
+
+            $table->foreign('formulir_id')->references('id')->on('trx_formulir')->cascadeOnDelete();
         });
     }
 
